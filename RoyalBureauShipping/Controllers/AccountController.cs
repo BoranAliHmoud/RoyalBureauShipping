@@ -1,4 +1,4 @@
-﻿using Certificate.Models;
+﻿ 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -16,26 +16,24 @@ namespace RoyalBureauShipping.Controllers
         public AccountController(ApplicationDbContext context )
         {
             _context = context;
-        
         }
-
         public IActionResult Login()
         {
-            var users = _context.Users.ToList();
+            //var users = _context.Users.ToList();
 
-            if (users == null ||users.Count==0)
-            {
-                User user = new User 
-                {
-                    FirstName= "Admin",
-                    LastName ="Admin",
-                    Email= "RoyalBureauShipping@admin.com",
-                    Password="123456789"
-                };
-               _context.Users.Add(user);
-                //عشان يعمل حفظ 
-                _context.SaveChanges();
-            }
+            //if (users == null ||users.Count==0)
+            //{
+            //    User user = new User 
+            //    {
+            //        FirstName= "Admin",
+            //        LastName ="Admin",
+            //        Email= "RoyalBureauShipping@admin.com",
+            //        Password="123456789"
+            //    };
+            //   _context.Users.Add(user);
+            //    //عشان يعمل حفظ 
+            //   _context.SaveChanges();
+            //}
             return View();
         }
         [HttpPost]
@@ -46,10 +44,10 @@ namespace RoyalBureauShipping.Controllers
             {
 				string storesJson = JsonConvert.SerializeObject(user);
 				HttpContext.Session.SetString("User", storesJson);
-				return RedirectToAction("Index", "Home");
+				return RedirectToAction("Index", "Ship");
             }
             else
-                return RedirectToAction("Login");
+               return RedirectToAction("Login");
         }
         public IActionResult Logout() 
         {

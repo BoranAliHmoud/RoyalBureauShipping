@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using RoyalBureauShipping.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RoyalBureauShipping.Models
+namespace RoyalBureauShipping.ViewModels
 {
-    public class ShipModel
+    public class ShipViewModel
     {
         public int Id { get; set; }
         public string VesselName { get; set; }
@@ -10,12 +11,12 @@ namespace RoyalBureauShipping.Models
         public string IMO_NO { get; set; }
         public string Class_Id { get; set; }
         public string GRT { get; set; }
-        public string Port_Of_Register { get; set; }
+        public string Port_Of_Register { get; set; } 
         public int Depth { get; set; }
         public int Leangh { get; set; }
         public int Breadth { get; set; }
         public string Propulsion { get; set; }
-        public int? CargoShipId { get; set; }
+		public int? CargoShipId { get; set; }
 
         //      [ForeignKey("CargoShipId")]
         //Date

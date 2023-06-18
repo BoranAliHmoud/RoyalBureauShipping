@@ -40,6 +40,10 @@ Notes:	decreasing heading by 0.4em with every subsequent heading level
 /*                   GENERIC                           */
 /*-----------------------------------------------------*/
 /* ----- Normalize ----- */
+.btn-primary {
+    background-color: #001b89 !important;
+    border-block-color: #001b89 !important;
+}
 * {
     margin: 0;
     padding: 0;
@@ -289,6 +293,7 @@ section {
 .page-container {
     background: #e5e5e5;
     padding-left: 300px;
+    padding-top: 33px;
 }
 
 @media (max-width: 991px) {
@@ -316,7 +321,7 @@ section {
 }
 
 .main-content {
-    padding-top: 56px;
+    padding-top: 21px;
     min-height: 100vh;
 }
 
@@ -14649,4 +14654,75 @@ section {
 
 .vue-lists ul, .vue-lists ol {
     padding-left: 30px;
+}
+.title-style {
+    margin-top: 50px;
+    display: flex;
+    gap: 13px;
+    padding: 0 23px;
+    align-items: center;
+}
+.search-table {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    margin: 22px 25px;
+}
+.menu .accordion-heading {
+    position: relative;
+}
+
+    .menu .accordion-heading .edit {
+        position: absolute;
+        top: 8px;
+        right: 30px;
+    }
+
+.menu .area {
+    border-left: 4px solid #001b89;
+}
+
+.menu .equipamento {
+    border-left: 4px solid #65c465;
+}
+
+.menu .ponto {
+    border-left: 4px solid #98b3fa;
+}
+
+.menu .collapse.in {
+    overflow: visible;
+}
+
+
+.accordion {
+    margin-bottom: 20px;
+}
+
+.accordion-group {
+    margin-bottom: 2px;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.accordion-heading {
+    border-bottom: 0;
+}
+
+    .accordion-heading .accordion-toggle {
+        display: block;
+        padding: 30px 15px;
+        color: black;
+        background: lightgrey;
+    }
+
+.accordion-toggle {
+    cursor: pointer;
+}
+
+.accordion-inner {
+    padding: 9px 15px;
+    border-top: 1px solid #e5e5e5;
 }

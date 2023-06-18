@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ShipModel>
+
+@{
+    ViewData["Title"] = "Ships";
+}
+<div class="title-style" >
+    <i class="fas fa-anchor" style="color: #001b89; font-size:30px;"></i>
+<h4>Ships Tables</h4>
+</div>
+<div class="search-table">
+    <h5>Search : </h5>
+    <input id="myInput" type="text" class="form-control col-3" placeholder="Search..">
+</div>
+<div  class="main-content">
+    <div class="section__content  ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive table--no-card m-b-30">
+                        <table class="table table-borderless table-striped table-earning">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Vessel Name
+                                    </th>
+                                    <th>
+                                        Ship Address
+                                    </th>
+                                    <th>
+                                        IMO NO
+                                    </th>
+                                    <th>
+                                        Class Id
+                                    </th>
+                                    <th>
+                                        GRT
+                                    </th>
+                                    
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="myTable">
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.VesselName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ShipAddress)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.IMO_NO)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Class_Id)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.GRT)
+                                        </td> 
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                            <a asp-action="SAFETYCONSTRUCTIONCERTIFICATE" asp-route-id="@item.Id">Details</a> |
+                                            <a asp-action="ExportPDF" asp-route-id="@item.Id">Export PDF</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -79,10 +79,10 @@
 						<ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
 							
 							<li>
-								<a href="#">Search Vessel</a>
+								<a href="#"> <i class="fa-solid fa-magnifying-glass"></i> Search Vessel</a>
 							</li>
 							<li>
-								<a href="#">Add Vessel</a>
+								<a href="#"> <i class="fa-solid fa-magnifying-glass"></i>Add Vessel</a>
 							</li>
 							@*<li>
 								<a href="#">Dashboard 3</a>
@@ -195,10 +195,10 @@
 						<ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
 							
 							<li>
-								<a href="#">Search Vessel</a>
+								<a href="~/Ship/Index"> <i class="fa fa-search"></i> Search Vessel</a>
 							</li>
 							<li>
-								<a href="#">Add Vessel</a>
+								<a href="~/Ship/Create"> <i class="	fas fa-pencil-alt"></i> Add Vessel</a>
 							</li>
 							@*<li>
 							<a href="#">Dashboard 3</a>
@@ -518,13 +518,23 @@
  
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-       <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.esm.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.esm.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+	<script>
+		$(document).ready(function () {
+			$("#myInput").on("keyup", function () {
+				var value = $(this).val().toLowerCase();
+				$("#myTable tr").filter(function () {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				});
+			});
+		});
+	</script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

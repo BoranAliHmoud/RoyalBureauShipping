@@ -1,0 +1,314 @@
+﻿@model ShipViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    List<CargoShip> CargoShipList = new List<CargoShip>();
+    if (ViewBag.CargoShip != null)
+        CargoShipList = ViewBag.CargoShip;
+}
+
+<div class="title-style">
+    <i class="fas fa-edit" style="color: #001b89; font-size:30px;"></i>
+    <h4> Edit Ship </h4>
+</div>
+
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="menu">
+                <form asp-action="Create" method="post">
+                    <div class="accordion">
+                        <!-- Áreas -->
+                        <div class="accordion-group">
+                            <!-- Basic info -->
+                            <div class="accordion-heading area">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#area1">Basic info</a>
+                            </div><!-- /Basic info-->
+
+                            <div class="accordion-body collapse" id="area1">
+                                <div class="accordion-inner">
+                                    <div class="accordion" id="equipamento1">
+                                        <!-- Equipamentos -->
+
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class=" row">
+                                            <div class="form-group  col-lg-6">
+                                                <label asp-for="VesselName" class="control-label"></label>
+                                                <input asp-for="VesselName" class="form-control" required />
+                                                <span asp-validation-for="VesselName" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <label asp-for="ShipAddress" class="control-label"></label>
+                                                <input asp-for="ShipAddress" class="form-control" required />
+                                                <span asp-validation-for="ShipAddress" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class=" row">
+                                            <div class="form-group col-lg-6">
+                                                <label asp-for="IMO_NO" class="control-label"></label>
+                                                <input asp-for="IMO_NO" class="form-control" required />
+                                                <span asp-validation-for="IMO_NO" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <label asp-for="Class_Id" class="control-label"></label>
+                                                <input asp-for="Class_Id" class="form-control" required />
+                                                <span asp-validation-for="Class_Id" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class=" row">
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="GRT" class="control-label"></label>
+                                                <input asp-for="GRT" class="form-control" required />
+                                                <span asp-validation-for="GRT" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="Port_Of_Register" class="control-label"></label>
+                                                <input asp-for="Port_Of_Register" class="form-control" required />
+                                                <span asp-validation-for="Port_Of_Register" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="Depth" class="control-label"></label>
+                                                <input asp-for="Depth" class="form-control" required />
+                                                <span asp-validation-for="Depth" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class=" row">
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="Leangh" class="control-label"></label>
+                                                <input asp-for="Leangh" class="form-control" required />
+                                                <span asp-validation-for="Leangh" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="Breadth" class="control-label"></label>
+                                                <input asp-for="Breadth" class="form-control" />
+                                                <span asp-validation-for="Breadth" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="Propulsion" class="control-label"></label>
+                                                <input asp-for="Propulsion" class="form-control" />
+                                                <span asp-validation-for="Propulsion" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /accordion -->
+                    <div class="accordion">
+                        <!-- Áreas -->
+                        <div class="accordion-group">
+                            <!-- Basic info -->
+                            <div class="accordion-heading area">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#area2">Types of Ships</a>
+                            </div><!-- /Basic info-->
+
+                            <div class="accordion-body collapse" id="area2">
+                                <div class="accordion-inner">
+                                    <div class="accordion" id="equipamento1">
+                                        <!-- Equipamentos -->
+
+
+                                        <div class="form-group">
+                                            <label class="control-label">Cargo Ship Type</label>
+                                            <select class="form-control col-4" asp-for="CargoShipId"> 
+                                                @foreach (CargoShip item in CargoShipList)
+                                                {
+                                                    <option value="@item.Id">@item.Name</option>
+                                                }
+                                            </select>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <!-- Áreas -->
+                        <div class="accordion-group">
+                            <!-- Basic info -->
+                            <div class="accordion-heading area">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#area3">Important dates for the vessel</a>
+                            </div><!-- /Basic info-->
+
+                            <div class="accordion-body collapse" id="area3">
+                                <div class="accordion-inner">
+                                    <div class="accordion" id="equipamento1">
+                                        <!-- Equipamentos -->
+
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class=" row">
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="DateBuildingContract" class="control-label"></label>
+                                                <input asp-for="DateBuildingContract" class="form-control" required />
+                                                <span asp-validation-for="DateBuildingContract" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="CasualHistory" class="control-label"></label>
+                                                <input asp-for="CasualHistory" class="form-control" required />
+                                                <span asp-validation-for="CasualHistory" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="DateDelivery" class="control-label"></label>
+                                                <input asp-for="DateDelivery" class="form-control" required />
+                                                <span asp-validation-for="DateDelivery" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class=" row">
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="ExemptionCertificate" class="control-label"></label>
+                                                <input asp-for="ExemptionCertificate" class="form-control" required />
+                                                <span asp-validation-for="ExemptionCertificate" class="text-danger"></span>
+                                            </div>
+
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="CertificateValid" class="control-label"></label>
+                                                <input asp-for="CertificateValid" class="form-control" required />
+                                                <span asp-validation-for="CertificateValid" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group  col-lg-4">
+                                                <label asp-for="CompletionDateSurvey" class="control-label"></label>
+                                                <input asp-for="CompletionDateSurvey" class="form-control" required />
+                                                <span asp-validation-for="CompletionDateSurvey" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class=" row">
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="CreatedDate" class="control-label"></label>
+                                                <input asp-for="CreatedDate" class="form-control" required />
+                                                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="FirstPostOutInspection" class="control-label"></label>
+                                                <input asp-for="FirstPostOutInspection" class="form-control" required />
+                                                <span asp-validation-for="FirstPostOutInspection" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="SecondPostOutInspection" class="control-label"></label>
+                                                <input asp-for="SecondPostOutInspection" class="form-control" />
+                                                <span asp-validation-for="SecondPostOutInspection" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class=" row">
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="ValidUntil" class="control-label"></label>
+                                                <input asp-for="ValidUntil" class="form-control" />
+                                                <span asp-validation-for="ValidUntil" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="DateofIssue" class="control-label"></label>
+                                                <input asp-for="DateofIssue" class="form-control" />
+                                                <span asp-validation-for="DateofIssue" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="RevisionDate" class="control-label"></label>
+                                                <input asp-for="RevisionDate" class="form-control" />
+                                                <span asp-validation-for="RevisionDate" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-lg-4">
+                                            <label asp-for="EffectiveDate" class="control-label"></label>
+                                            <input asp-for="EffectiveDate" class="form-control" />
+                                            <span asp-validation-for="EffectiveDate" class="text-danger"></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div><!-- /accordion -->
+                    <div class="accordion">
+                        <!-- Áreas -->
+                        <div class="accordion-group">
+                            <!-- Basic info -->
+                            <div class="accordion-heading area">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#area4">General Information</a>
+                            </div><!-- /Basic info-->
+
+                            <div class="accordion-body collapse" id="area4">
+                                <div class="accordion-inner">
+                                    <div class="accordion" id="equipamento1">
+                                        <!-- Equipamentos -->
+
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class=" row">
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="PortSurvey" class="control-label"></label>
+                                                <input asp-for="PortSurvey" class="form-control" required />
+                                                <span asp-validation-for="PortSurvey" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="ClassificationCharacters" class="control-label"></label>
+                                                <input asp-for="ClassificationCharacters" class="form-control" required />
+                                                <span asp-validation-for="ClassificationCharacters" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="Year" class="control-label"></label>
+                                                <input asp-for="Year" class="form-control" required />
+                                                <span asp-validation-for="Year" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class=" row">
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="IssuedAt" class="control-label"></label>
+                                                <input asp-for="IssuedAt" class="form-control" required />
+                                                <span asp-validation-for="IssuedAt" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="TypeShipstrign" class="control-label"></label>
+                                                <input asp-for="TypeShipstrign" class="form-control" required />
+                                                <span asp-validation-for="TypeShipstrign" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label asp-for="DeadweightShip" class="control-label"></label>
+                                                <input asp-for="DeadweightShip" class="form-control" required />
+                                                <span asp-validation-for="DeadweightShip" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class=" row">
+                                            <div class="form-group col-lg-6">
+                                                <label asp-for="DistinctiveNumber" class="control-label"></label>
+                                                <input asp-for="DistinctiveNumber" class="form-control" required />
+                                                <span asp-validation-for="DistinctiveNumber" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <label asp-for="GrossTonnage" class="control-label"></label>
+                                                <input asp-for="GrossTonnage" class="form-control" required />
+                                                <span asp-validation-for="GrossTonnage" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div><!-- /accordion -->
+
+                    <div class="form-group">
+                        
+                        <input type="submit" value="Edit" class="btn btn-primary" />
+                    </div>
+
+                    <!-- /accordion -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
