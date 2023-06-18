@@ -184,7 +184,7 @@ namespace RoyalBureauShipping.Controllers
         }
         public IActionResult ExportPDF(long id)
         {
-
+            
             var Renderer = new ChromePdfRenderer(); // Instantiates Chrome Renderer
 
             // To include elements that are usually removed to save ink during printing we choose screen
@@ -225,6 +225,8 @@ namespace RoyalBureauShipping.Controllers
         public async Task<IActionResult> SAFETYCONSTRUCTIONCERTIFICATE(int id)
         {
             var ShipSafety = await _context.Ships.FindAsync(id);
+            List<CargoShip> CargoShip = _context.CargoShips.ToList();
+            ViewBag.CargoShip = CargoShip;
 
             return View(ShipSafety);
         }
