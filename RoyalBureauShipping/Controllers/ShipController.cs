@@ -8,6 +8,7 @@ using System.Drawing;
 using QRCoder;
 
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Net.WebRequestMethods;
 
 namespace RoyalBureauShipping.Controllers
 {
@@ -189,8 +190,8 @@ namespace RoyalBureauShipping.Controllers
 
             // To include elements that are usually removed to save ink during printing we choose screen
             Renderer.RenderingOptions.CssMediaType = IronPdf.Rendering.PdfCssMediaType.Screen;
-
-            var pdf = Renderer.RenderUrlAsPdf("https://localhost:7126/Ship/SAFETYCONSTRUCTIONCERTIFICATE?id=" + id);
+            var Url = $"https://{HttpContext.Request.Host}/Ship/SAFETYCONSTRUCTIONCERTIFICATE?id={id}";
+            var pdf = Renderer.RenderUrlAsPdf( Url);
             pdf.SaveAs("Reports/url_saved.pdf");
             return File(System.IO.File.OpenRead("Reports/url_saved.pdf"), "application/force-download", Path.GetFileName("Reports/url_saved.pdf"));
         }
@@ -199,7 +200,9 @@ namespace RoyalBureauShipping.Controllers
         public bool CreateQRCode(string id)
         {
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode("https://localhost:7126/Ship/SAFETYCONSTRUCTIONCERTIFICATE?id=" + id, QRCodeGenerator.ECCLevel.Q);
+            var Url = $"https://{HttpContext.Request.Host}/Ship/SAFETYCONSTRUCTIONCERTIFICATE?id={id}";
+
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode( Url, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             Bitmap qrCodeImage = qrCode.GetGraphic(20);
 
