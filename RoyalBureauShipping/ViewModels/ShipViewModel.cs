@@ -33,6 +33,7 @@ namespace RoyalBureauShipping.ViewModels
         public DateTime DateofIssue { get; set; }
         public DateTime RevisionDate { get; set; }
         public DateTime EffectiveDate { get; set; }
+        public DateTime LastPropeller { get; set; }
         //End 
 
 
@@ -45,6 +46,9 @@ namespace RoyalBureauShipping.ViewModels
         public int? DeadweightShip { get; set; }
         public string? DistinctiveNumber { get; set; }
         public int? GrossTonnage { get; set; }
+        public string? PermissibleMarineAreas { get; set; }
+        public string? ShipOwner { get; set; }
+        public string? Machinery { get; set; }
 
     }
 }

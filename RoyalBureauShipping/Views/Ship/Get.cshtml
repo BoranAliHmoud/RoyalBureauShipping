@@ -1,0 +1,120 @@
+﻿@model ShipModel;
+<!-- MAIN CONTENT-->
+ 
+<div class="main-content">
+	<div class="section__content section__content--p30">
+		<div class="container-fluid">
+			<div class="row"> 
+				<div class="col-lg-4">
+					<div class="card">
+						<div class="card-header">
+                            <h6 class="Font-h6">Cargo Ship Safety Equipment Certificate</h6>
+						</div>
+						<div class="">
+                            <div id="pdfContainerCargoShipSafety"  style="display: flex;  height: 150px;  justify-content: space-around;"></div>
+						</div>
+                        <div style="display: flex;      padding: 6px;  justify-content: space-evenly;">
+                            <a asp-action="ExportPDF" asp-route-id=@Model.Id asp-route-NameCertificat="SAFETYCONSTRUCTIONCERTIFICATE"><i class="fa fa-download"></i></a>|
+                            <a asp-action="Edit" asp-route-id=@Model.Id><i class="fa fa-edit"></i></a>
+
+                        </div>
+					</div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="Font-h6">Cargo Ship Safety Radio Certificate</h6>
+                        </div>
+                        <div class="">
+                            <div id="pdfContainerCargoShipRadio" style="display: flex;  height: 150px;  justify-content: space-around;"></div>
+                        </div>
+                        <div style="display: flex;      padding: 6px;  justify-content: space-evenly;">
+                            <a asp-action="ExportPDF" asp-route-id=@Model.Id asp-route-NameCertificat="CargoShipRadio"><i class="fa fa-download"></i></a>|
+                            <a asp-action="Edit" asp-route-id=@Model.Id><i class="fa fa-edit"></i></a>
+
+                        </div>
+                    </div>
+                    </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="Font-h6">
+                                Certificate of Class
+                            </h6>
+                        </div>
+                        <div class="">
+                            <div id="pdfContainerCertificateOfClass" style="display: flex;  height: 150px;  justify-content: space-around;"></div>
+                        </div>
+                        <div style="display: flex;      padding: 6px;  justify-content: space-evenly;">
+                            <a asp-action="ExportPDF" asp-route-id=@Model.Id asp-route-NameCertificat="CertificateOfClass"><i class="fa fa-download"></i></a>|
+                            <a asp-action="Edit" asp-route-id=@Model.Id><i class="fa fa-edit"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+			</div>
+			 
+		</div>
+	</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+<script>
+    
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.js';
+
+    // URL to your PDF document
+    const pdfUrlCargoShipSafety = "ExportPDF?id=" + @Model.Id+"&NameCertificat=SAFETYCONSTRUCTIONCERTIFICATE";
+    
+    // ID of the div where you want to display the PDF page
+    const pdfContainerCargoShipSafety = document.getElementById('pdfContainerCargoShipSafety');
+
+
+    // URL to your PDF document
+    const pdfUrlCargoShipRadio = "ExportPDF?id=" + @Model.Id+"&NameCertificat=CargoShipRadio";
+
+    // ID of the div where you want to display the PDF page
+    const pdfContainerCargoShipRadio = document.getElementById('pdfContainerCargoShipRadio');
+      // URL to your PDF document
+    const pdfUrlCertificateOfClass = "ExportPDF?id=" + @Model.Id+"&NameCertificat=CertificateOfClass";
+
+    // ID of the div where you want to display the PDF page
+    const pdfContainerCertificateOfClass = document.getElementById('pdfContainerCertificateOfClass');
+
+
+    // Asynchronous function to load and display the PDF page
+    async function displayPDFPage(pdfUrl, container) {
+        // Fetch the PDF document
+        const pdfDoc = await pdfjsLib.getDocument(pdfUrl).promise;
+
+        // Get the first page of the document
+        const pageNumber = 1; // Replace with the desired page number
+        const pdfPage = await pdfDoc.getPage(pageNumber);
+
+        // Set the scale of the PDF page to fit the container width
+        const viewport = pdfPage.getViewport({ scale: 1 });
+        const scale = container.clientWidth / viewport.width;
+        const scaledViewport = pdfPage.getViewport({ scale });
+
+        // Create a canvas element to render the PDF page
+        const canvas = document.createElement('canvas');
+        canvas.width = scaledViewport.width;
+        canvas.height = scaledViewport.height;
+
+        // Append the canvas to the container
+        container.appendChild(canvas);
+
+        // Get the canvas context and render the PDF page on it
+        const context = canvas.getContext('2d');
+        const renderContext = {
+            canvasContext: context,
+            viewport: scaledViewport,
+        };
+        await pdfPage.render(renderContext).promise;
+    }
+
+    // Call the function to display the PDF page
+    displayPDFPage(pdfUrlCargoShipSafety, pdfContainerCargoShipSafety);
+    displayPDFPage(pdfUrlCargoShipRadio, pdfContainerCargoShipRadio);
+    displayPDFPage(pdfUrlCertificateOfClass, pdfContainerCertificateOfClass);
+</script>
+<!-- END PAGE CONTAINER--> 

@@ -4,8 +4,8 @@
     Layout = null;
   
     List<CargoShip> CargoShipList = new List<CargoShip>();
-    if (ViewBag.CargoShip != null)
-        CargoShipList = ViewBag.CargoShip;
+    //if (ViewBag.CargoShip != null)
+    //    CargoShipList = ViewBag.CargoShip;
     }
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         body, p {
-            font-size: 9px;
+            font-size: 12px;
         }
 
         h4 {
@@ -46,7 +46,7 @@
 <body>
 
 
-    <div class="container-fluid  " style="width: 90%;
+    <div class="container-fluid  " style="width: 100%;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -55,40 +55,45 @@
         <div class="row content">
 
             <div class="col-12  ">
-                <div class=" row" style=" width: 100%;
-    display: flex;
-    flex-direction: row-reverse;
+                <div class=" row" style="    width: 100%;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-margin: 0;
+    margin: 0;
+    display: flex;
 
 ">
+                   <div> 
                      
-                    <img src="~/img/image2.png" width=100 />
-                    <h1 class="align-content-center">
-                        INTERIM CARGO SHIP SAFETY CONSTRUCTION CERTIFICATE
-                    </h1>
                     <img src="~/img/img.png" width=100 />
                 </div>
                 <div class=" row" style="  width: 100%;
-    display: flex;
+display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-">
-                <p>
-                    Issued under the provisions of the International Convention for the Safety of Life at Sea, 1974,
-                    As modified by the protocol of 1988 relating thereto, under the Authority of the Government of
-                </p>
-                    <h1 class="align-content-center">THE UNITED REPUBLIC OF TANZANIA</h1>
+    align-items: flex-end;
+                    ">
+                            <h4 class="col-6  ">CERT. No. :@Model.Class_Id</h4>
+
+                        <h1 class="align-content-center">
+                            INTERIM CARGO SHIP SAFETY CONSTRUCTION CERTIFICATE
+                        </h1>
+                        <p style="width: 50%;">
+                        This Certificate shall be supplemented by a Record of Equipment for
+                        Cargo Ship Safety Radio (FORM R)
+                        Issued under the provisions of the
+                        International Convention for the Safety of Life at Sea, 1974,
+                    </p>
+                    </div>
+                
+            </div>
+            </div>
+            <div class=" " style="display: flex;    justify-content: space-around;">
+                <div class="col-6  " >
+                    <p>THE UNITED REPUBLIC OF TANZANIA</p>
                     <h1 class="align-content-center">
-                    By ROYAL BUREAU OF SHIPPING
-                </h1>
-            </div>
-            </div>
-            <div class="justify-content-end" style="display: flex;">
-                <div class="col-6  " style="border-style: solid;display: flex;">
-                    <h4 class="col-6  ">CERT. No.</h4><h4 class="col-6  ">@Model.Class_Id</h4>
+                        By ROYAL BUREAU OF SHIPPING
+                    </h1>
                 </div>
             </div>
             <div style="    width: 100%;
@@ -97,7 +102,7 @@ margin: 0;
     justify-content: center;
 
 ">
-                <table class="table table-bordered" style="margin-bottom:0">
+                <table class="table table-bordered" style="margin-bottom:0;     width: 100%;">
                     <thead>
                         <tr>
                             <th scope="col">Name of Ship</th>
@@ -121,10 +126,10 @@ margin: 0;
                             <th>
                                 @Model.VesselName
                             </th>
-                            <td>@Model.DistinctiveNumber</td>
-                            <td>@Model.Port_Of_Register</td>
-                            <td>@Model.GrossTonnage</td>
-                            <td>@Model.IMO_NO</td>
+                            <th>@Model.DistinctiveNumber</th>
+                            <th>@Model.Port_Of_Register</th>
+                            <th>@Model.GrossTonnage</th>
+                            <th>@Model.IMO_NO</th>
                         </tr>
                     </tbody>
                 </table>
@@ -132,114 +137,54 @@ margin: 0;
             </div>
 
             <div class="col-12 "> 
-                <p class="align-content-center">Deadweight of Ship1 <span>@Model.DeadweightShip</span> metric tons</p>
-               
-            </div>
-            <div class="justify-content-end" style="display: flex;">
-                <h1 style="margin: 0;">Type of Ship 2:</h1>
-
-            </div>
-            <div class="col-12  " style="    width: 69%;
+                <p class="align-content-center">
+                    Sea areas in which ship is certified to operate (regulation IV/2)
+                    <span>@Model.PermissibleMarineAreas </span>
+                </p>
+                <p class="align-content-center">
+                    Date on which keel was laid or ship was at a similar stage of construction or, where applicable, date on which work for a
+                    conversion or an alternation or modification of a major character was commenced
+                    <span>@Model.CasualHistory.ToString("yyyy/MM/dd")</span>
+                </p>
+                <p class="align-content-center">
+                    This is to certify: 
+                </p>
+                <p class="align-content-center">
+                    1. That the ship has been surveyed in accordance with the requirements of regulation I/9 of the Convention.
+                </p>
+                <p class="align-content-center">
+                    2. That the survey showed that:
+                </p>   
+                <p class="align-content-center" style="margin-left: 17px">
+                    2.1 the ship complied with the requirements of the Convention as regards radio installations;
+                </p>  
+                <p class="align-content-center" style="margin-left: 17px">
+                    2.2 the functioning of the radio installations used in life-saving appliances complied with the requirements of
+                    theConvention.
+                </p> 
+                <p class="align-content-center">
+                    3. That an Exemption Certificate has / has not2 been issued. 
+                </p>  
+                <p class="align-content-center">
+                    This certificate is valid until:<span>@Model.CertificateValid.ToString("yyyy/MM/dd")</span>
+                </p>
+                <p class="align-content-center">
+                    Completion date of the survey on which this certificate is based: <span>@Model.CompletionDateSurvey.ToString("yyyy/MM/dd")</span>
+                </p>
+                <p class="align-content-center">
+                    Issued at<span>@Model.IssuedAt</span> On <span>@Model.CreatedDate.ToString("yyyy/MM/dd")</span>
+                </p>
+            </div> 
+            <div style="
     display: flex;
-    flex-wrap: wrap;
-    /* padding: 11px; */
-    justify-content: space-between;
-    margin: 5px;
-                  ">
-             @foreach (CargoShip item in CargoShipList )
-                    {
-            <div> 
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="1" readonly @(item.Id == Model.CargoShipId ? "checked='checked'" : "")>
-                <label for="vehicle1"> @item.Name</label><br>
-                    </div>
-                }
-        
-            </div>
-            <div class="col-12">
-                <div class=" row" >
-                 
-                    <ul>
-                        <li>Date of building contract<span>@Model.DateBuildingContract.ToString("yyyy/MM/dd")</span></li>
-                        <li>Date on which keel was laid or ship was at a similar stage of construction<span>@Model.CasualHistory.ToString("yyyy/MM/dd")</span></li>
-                        <li>Date of delivery <span>@Model.DateDelivery.ToString("yyyy/MM/dd")</span></li>
-                        <li>Date on which work for a conversion or an alteration or modification of major character was commenced (where applicable):<span>@Model.ExemptionCertificate.ToString("yyyy/MM/dd")</span></li>
-                    </ul>
-                </div>
-
-            </div>
-            <div class="col-12">
-                <div class=" row">
-                    <h1 style="margin: 0;">THIS IS TO CERTIFY:</h1>
-                    <ul>
-                        <li>
-                            That this ship has been surveyed in accordance with the requirements of regulation I/10 of the Convention
-                        </li>
-                        <li>
-                            That the surveyor showed that the condition of the structure, machinery and equipment as defined in the above regulation was satisfactory and the ship complied with the relevant requirements of Chapters II-1 and II-2 of the Convention (other than those relating to fire safety systems and appliances and fire Control plans).
-                        </li>
-                        <li>That The last two inspection of the outside of the ship’s bottom took place on</li>
-
-                        <li>Date on which work for a conversion or an alteration or modification of major character was commenced (where applicable):<span>@Model.ExemptionCertificate.ToString("yyyy/MM/dd")</span></li>
-                    
-                    </ul>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">@Model.FirstPostOutInspection.ToString("yyyy/MM/dd")</th>
-                                <th scope="col">
-                                 and
-                                </th>
-                                <th scope="col">@Model.SecondPostOutInspection.ToString("yyyy/MM/dd")</th>
-                            </tr>
-                        </thead>
-                        <tbody> 
-                        </tbody>
-                    </table>
-                    <ul>
-                        <li>
-                            That an Exemption Certificate<span>@Model.ExemptionCertificate.ToString("yyyy/MM/dd")</span>been issued.
-                        </li>
-                        <li>
-                            The ship was not / was subjected to an alternative design and arrangements in pursuance of regulation II-2/17 of the Convention;
-                        </li>
-                        <li>
-                            A Document of approval of alternative design and arrangements for fire safety is not / is appended to this Certificate.
-                        </li> 
-                    </ul>
-                </div>
-
-            </div>
-            <div class="col-12">
-
-                <p>This Certificate is valid until <span>@Model.CertificateValid.ToString("yyyy/MM/dd")</span><p />
-                <p>Subject to the annual and intermediate surveys and inspections of the outside of the ship’s bottom in accordance with Regulation I/10 of the Convention.</p>
-                <h6>Completion date of the survey on which this certificate is based <span>@Model.CompletionDateSurvey.ToString("yyyy/MM/dd")</span></h6>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col"> Issued at</th>
-                            <th scope="col">@Model.IssuedAt</th>
-                            <th scope="col">
-                                On the
-                            </th>
-                            <th scope="col">@Model.CreatedDate.ToString("yyyy/MM/dd")</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-            <div class=" row" style="    width: 100%;
-    display: flex;
-    justify-content: space-between;
     flex-direction: row-reverse;
-    align-items: center;
 ">
                 <div style=" width:50%;">
+                <hr class="table table-bordered" />
                     <p style="    text-align: center;font-weight: bold;">
                         ENG. I. ABDALLAH
                     </p>
-                    <hr class="table table-bordered" />
+                 
                     <p style="    text-align: center;font-weight: bold;">
                         Surveyor to<span > ROYAL BUREAU OF SHIPPING</span>
                     </p>
@@ -249,7 +194,8 @@ margin: 0;
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+  
 
 
 </body>

@@ -40,6 +40,12 @@ Notes:	decreasing heading by 0.4em with every subsequent heading level
 /*                   GENERIC                           */
 /*-----------------------------------------------------*/
 /* ----- Normalize ----- */
+.Font-h6 {
+    font-size: 12px;
+}
+a {
+    color: #001b89;
+}
 .btn-primary {
     background-color: #001b89 !important;
     border-block-color: #001b89 !important;
@@ -323,6 +329,7 @@ section {
 .main-content {
     padding-top: 21px;
     min-height: 100vh;
+    margin: 11px 0;
 }
 
 @media (max-width: 991px) {
