@@ -1,0 +1,133 @@
+﻿@model ShipModel
+@using System.Linq;
+@{
+    Layout = null;
+
+    List<CargoShip> CargoShipList = new List<CargoShip>();
+    //if (ViewBag.CargoShip != null)
+    //    CargoShipList = ViewBag.CargoShip;
+}
+<!doctype html>
+<html lang="en">
+     <head>
+
+    <!-- Bootstrap CSS-->
+    <link href="~/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
+    <link href="~/css/certificate.css" rel="stylesheet" />
+     </head>
+   
+     <body>
+    <div class ="page">
+        <div class="row">
+         
+            <div class="col-5">
+                <h1 class="text-hide" style="background-image: url('img\img.png'); width: 50px; height: 50px;">
+                <img src="~/img/img.png" width=200 />
+                </h1>
+            </div>
+            <div class="col-7 float-right">
+            <h6 class="text-sm-right"> Certificate No.:<span> @Model.Class_Id</span></h6>
+            <h4 class="text-sm-right">
+                    INTERNATIONAL AIR POLLUTION PREVENTION
+                    CERTIFICATE
+                    (INTERIM)
+                </h4>
+                <p class="col-9 float-right text-sm-right px-0">
+                    Issued under the Provisions of the Protocol of 1997,
+                    as amended by the resolution MEPC.176(58) in 2008,
+                    to amend the International Convention for the prevention of Pollution
+                    from Ships, 1973
+                    as modified by the Protocol of 1978 related thereto,
+                    (Hereinafter referred to as “The Convention”)
+
+                </p>
+
+            </div>
+
+            <div class=" col-12 text-sm-center float-center">
+            <p class="col-12 text-sm-center"> Under the Authority of the Government of </p> 
+                <h6 class="col-9  mx-auto text-sm-center">
+                        Hashemite Kingdom of Jordan
+                        By Royal Bureau of Shipping
+                </h6>
+                    </div>
+
+                <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name of Ship</th>
+                            <th scope="col">
+                                Distinctive
+                                Number of Letter
+                            </th>
+                            <th scope="col">Port of Registry</th>
+                            <th scope="col">Gross Tonnage</th>
+                            <th scope="col">
+                                IMO
+                                NUMBER
+                            </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <th>
+                                @Model.VesselName
+                            </th>
+                            <th>@Model.DistinctiveNumber</th>
+                            <th>@Model.Port_Of_Register</th>
+                            <th>@Model.GrossTonnage</th>
+                            <th>@Model.IMO_NO</th>
+                        </tr>
+                    </tbody>
+                </table>
+
+                </div>
+            <div class="col-12">
+                <p>This is to Certify:</p>
+                <p class="ml-4">1. That the ship has been surveyed in accordance with regulation 5 of Annex VI of the Convention; and</p>
+                <p class="ml-4">
+                    2. That the survey shows that the equipment, systems, fittings, arrangements and materials fully comply with the
+                    applicable requirements of Annex VI of the Convention
+                </p>
+                <p>Completion date of the survey on which this certificate is based:</p>
+                <p class="styleIssued">
+                    This certificate is valid until<span>@Model.CertificateValid.ToString("yyyy/MM/dd") </span> subject to survey in accordance with regulation 5 of Annex VI of the
+                    Convention.
+                </p>
+                <p class="styleIssued">
+                    Issued at <span class="text-justify">@Model.IssuedAt</span>on <span class="text-justify">@Model.CreatedDate.ToString("yyyy/MM/dd") </span>
+                </p>
+               </div>
+            <div class="col-12">
+                <div class="row d-flex">
+
+                    <img class="col-3 mr-auto p-2" src="@String.Format("/GeneratedQRCode/shipsafety/{0}.webp",Model.Id.ToString())"   />
+
+                    <div class="col-6 p-2" style="margin-top: 75px">
+                        <hr/>
+                        <h6 class="text-sm-center" >
+                            ENG. I. ABDALLAH
+                        </h6>
+
+                        <h6 class="text-sm-center">
+                            Surveyor to<span> ROYAL BUREAU OF SHIPPING</span>
+                        </h6>
+                    </div>
+                </div>
+                </div>
+            <p style="font-size:9px; margin-top: 75px">
+                1
+                In accordance with IMO ship identification number scheme adopted by the Organization by resolution A.1117(30).
+            </p>
+        </div>
+     
+    </div>
+
+     </body>
+  </html>

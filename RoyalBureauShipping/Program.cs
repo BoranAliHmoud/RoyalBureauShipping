@@ -1,7 +1,7 @@
  
 using Microsoft.EntityFrameworkCore;
 using RoyalBureauShipping.Models;
-using RoyalBureauShipping.Services;
+ 
 //using NToastNotify;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +18,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //    ProgressBar = true,
 //    Timeout = 5000
 //});
-builder.Services.AddScoped<PdfGenerationService>();
+//builder.Services.AddScoped<PdfGenerationService>();
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>

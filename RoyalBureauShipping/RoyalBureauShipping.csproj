@@ -51,7 +51,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="itext7" Version="8.0.0" />
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.7" />
@@ -62,10 +62,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.7" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Utils" Version="7.0.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="PuppeteerSharp" Version="10.1.2" />
     <PackageReference Include="QRCoder" Version="1.4.1" />
     <PackageReference Include="BarCode" Version="2023.4.1" />
     <PackageReference Include="IronPdf" Version="2023.4.4" />
     <PackageReference Include="Selenium.WebDriver" Version="4.10.0" />
+    
   </ItemGroup>
 
   <ItemGroup>

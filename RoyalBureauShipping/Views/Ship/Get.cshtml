@@ -4,7 +4,9 @@
 <div class="main-content">
 	<div class="section__content section__content--p30">
 		<div class="container-fluid">
-			<div class="row"> 
+			<div class="row">
+                
+                @*Begin Item *@
 				<div class="col-lg-4">
 					<div class="card">
 						<div class="card-header">
@@ -14,12 +16,14 @@
                             <div id="pdfContainerCargoShipSafety"  style="display: flex;  height: 150px;  justify-content: space-around;"></div>
 						</div>
                         <div style="display: flex;      padding: 6px;  justify-content: space-evenly;">
-                            <a asp-action="ExportPDF" asp-route-id=@Model.Id asp-route-NameCertificat="SAFETYCONSTRUCTIONCERTIFICATE"><i class="fa fa-download"></i></a>|
+                            <a asp-action="ExportPDF" asp-route-id=@Model.Id asp-route-NameCertificat="SafetyConstructionCertificate"><i class="fa fa-download"></i></a>|
                             <a asp-action="Edit" asp-route-id=@Model.Id><i class="fa fa-edit"></i></a>
 
                         </div>
 					</div>
                 </div>
+                @*End Item*@
+                @*Begin Item *@
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-header">
@@ -35,6 +39,8 @@
                         </div>
                     </div>
                     </div>
+                @*End Item*@
+                   @*Begin Item *@
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-header">
@@ -52,6 +58,46 @@
                         </div>
                     </div>
                 </div>
+                @*End Item*@
+                @*Begin Item *@
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="Font-h6"> 
+                                International Loaline Certificate
+                            </h6>
+                        </div>
+                        <div class="">
+                            <div id="pdfContainerInternationalLoalineCertificate" style="display: flex;  height: 150px;  justify-content: space-around;"></div>
+                        </div>
+                        <div style="display: flex;      padding: 6px;  justify-content: space-evenly;">
+                            <a asp-action="ExportPDF" asp-route-id=@Model.Id asp-route-NameCertificat="InternationalLoalineCertificate"><i class="fa fa-download"></i></a>|
+                            <a asp-action="Edit" asp-route-id=@Model.Id><i class="fa fa-edit"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                @*End Item*@
+
+                @*Begin Item *@
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="Font-h6">
+                                International Air Pollution Prevention Certificate
+                            </h6>
+                        </div>
+                        <div class="">
+                            <div id="pdfContainerInternationalAirPollutionPreventionCertificate" style="display: flex;  height: 150px;  justify-content: space-around;"></div>
+                        </div>
+                        <div style="display: flex;      padding: 6px;  justify-content: space-evenly;">
+                            <a asp-action="ExportPDF" asp-route-id=@Model.Id asp-route-NameCertificat="InternationalAirPollutionPreventionCertificate"><i class="fa fa-download"></i></a>|
+                            <a asp-action="Edit" asp-route-id=@Model.Id><i class="fa fa-edit"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                @*End Item*@
 			</div>
 			 
 		</div>
@@ -63,22 +109,31 @@
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.js';
 
     // URL to your PDF document
-    const pdfUrlCargoShipSafety = "ExportPDF?id=" + @Model.Id+"&NameCertificat=SAFETYCONSTRUCTIONCERTIFICATE";
-    
+    const pdfUrlCargoShipSafety = "ExportPDF?id=" + @Model.Id+"&NameCertificat=SafetyConstructionCertificate"; 
     // ID of the div where you want to display the PDF page
     const pdfContainerCargoShipSafety = document.getElementById('pdfContainerCargoShipSafety');
 
 
     // URL to your PDF document
-    const pdfUrlCargoShipRadio = "ExportPDF?id=" + @Model.Id+"&NameCertificat=CargoShipRadio";
-
+    const pdfUrlCargoShipRadio = "ExportPDF?id=" + @Model.Id+"&NameCertificat=CargoShipRadio"; 
     // ID of the div where you want to display the PDF page
     const pdfContainerCargoShipRadio = document.getElementById('pdfContainerCargoShipRadio');
-      // URL to your PDF document
-    const pdfUrlCertificateOfClass = "ExportPDF?id=" + @Model.Id+"&NameCertificat=CertificateOfClass";
 
+
+      // URL to your PDF document
+    const pdfUrlCertificateOfClass = "ExportPDF?id=" + @Model.Id+"&NameCertificat=CertificateOfClass"; 
     // ID of the div where you want to display the PDF page
-    const pdfContainerCertificateOfClass = document.getElementById('pdfContainerCertificateOfClass');
+    const pdfContainerCertificateOfClass = document.getElementById('pdfContainerCertificateOfClass');  
+    
+    // URL to your PDF document
+    const pdfUrlInternationalLoalineCertificate = "ExportPDF?id=" + @Model.Id+"&NameCertificat=InternationalLoalineCertificate";
+    // ID of the div where you want to display the PDF page
+    const pdfContainerInternationalLoalineCertificate = document.getElementById('pdfContainerInternationalLoalineCertificate');
+
+   // URL to your PDF document
+    const pdfUrlInternationalAirPollutionPreventionCertificate = "ExportPDF?id=" + @Model.Id+"&NameCertificat=InternationalAirPollutionPreventionCertificate";
+    // ID of the div where you want to display the PDF page
+    const pdfContainerInternationalAirPollutionPreventionCertificate = document.getElementById('pdfContainerInternationalAirPollutionPreventionCertificate');
 
 
     // Asynchronous function to load and display the PDF page
@@ -116,5 +171,7 @@
     displayPDFPage(pdfUrlCargoShipSafety, pdfContainerCargoShipSafety);
     displayPDFPage(pdfUrlCargoShipRadio, pdfContainerCargoShipRadio);
     displayPDFPage(pdfUrlCertificateOfClass, pdfContainerCertificateOfClass);
+    displayPDFPage(pdfUrlInternationalLoalineCertificate, pdfContainerInternationalLoalineCertificate);
+    displayPDFPage(pdfUrlInternationalAirPollutionPreventionCertificate, pdfContainerInternationalAirPollutionPreventionCertificate);
 </script>
 <!-- END PAGE CONTAINER--> 

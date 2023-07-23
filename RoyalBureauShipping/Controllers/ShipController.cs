@@ -17,7 +17,7 @@ using static System.Net.WebRequestMethods;
 using System.Reflection.PortableExecutable;
  
 using Grpc.Core;
-using RoyalBureauShipping.Services;
+//using RoyalBureauShipping.Services;
 using IronPdf;
 
 namespace RoyalBureauShipping.Controllers
@@ -26,7 +26,7 @@ namespace RoyalBureauShipping.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IHostEnvironment _env;
-		private readonly PdfGenerationService _pdfService;
+		//private readonly PdfGenerationService _pdfService;
 		private readonly IWebHostEnvironment _environment;
         public ShipController(ApplicationDbContext context, IWebHostEnvironment environment, IHostEnvironment env)
         {
@@ -219,24 +219,20 @@ namespace RoyalBureauShipping.Controllers
 
             // To include elements that are usually removed to save ink during printing we choose screen
             Renderer.RenderingOptions.CssMediaType = IronPdf.Rendering.PdfCssMediaType.Screen;
-          //  Renderer.RenderingOptions.CssMediaType.TopMargin = 0;
-  
+            Renderer.RenderingOptions.ApplyMarginToHeaderAndFooter= false;
+
+            Renderer.RenderingOptions.MarginLeft = 0;
+            Renderer.RenderingOptions.MarginRight = 0;
+            Renderer.RenderingOptions.MarginTop = 0;
+            Renderer.RenderingOptions.MarginBottom =0;
+            Renderer.RenderingOptions.Zoom = 85;
+
             var Url = $"https://{HttpContext.Request.Host}/Ship/{NameCertificat}?id={id}";
             var pdf = Renderer.RenderUrlAsPdf(Url);
             var namePdf = $"Reports/{NameCertificat}_{id}.pdf";
             pdf.SaveAs(namePdf);
             return File(System.IO.File.OpenRead(namePdf), "application/force-download", System.IO.Path.GetFileName(namePdf));
-        }
-        //public IActionResult ExportPDF(long id, string NameCertificat)
-        //{
-        //	string url = "https://www.example.com"; // Replace with the URL of the webpage you want to convert
-        //	string outputPath = "path/to/output.pdf"; // Replace with the desired output path
-
-        //	_pdfService.ConvertWebPageToPdf(url, outputPath);
-
-        //	return RedirectToAction("Index");
-        //}
-
+        } 
 
         public bool CreateQRCode(string id)
         {
@@ -266,7 +262,7 @@ namespace RoyalBureauShipping.Controllers
             }
         }
         
-        public async Task<IActionResult> SAFETYCONSTRUCTIONCERTIFICATE(int id)
+        public async Task<IActionResult> SafetyConstructionCertificate(int id)
         {
             var ShipSafety = await _context.Ships.FindAsync(id);
             //List<CargoShip> CargoShip = _context.CargoShips.ToList();
@@ -289,54 +285,25 @@ namespace RoyalBureauShipping.Controllers
             //ViewBag.CargoShip = CargoShip;
 
             return View(ShipSafety);
+        } 
+        public async Task<IActionResult> InternationalLoalineCertificate(int id)
+        {
+            var ShipSafety = await _context.Ships.FindAsync(id);
+            //List<CargoShip> CargoShip = _context.CargoShips.ToList();
+            //ViewBag.CargoShip = CargoShip;
+
+            return View(ShipSafety);
+        }
+         public async Task<IActionResult> InternationalAirPollutionPreventionCertificate(int id)
+        {
+            var ShipSafety = await _context.Ships.FindAsync(id);
+            //List<CargoShip> CargoShip = _context.CargoShips.ToList();
+            //ViewBag.CargoShip = CargoShip;
+
+            return View(ShipSafety);
         }
 
-        //public string ConvertPdfToHtml(string pdfFileName)
-        //{
-        //    string pdfFilePath = System.IO.Path.Combine(_environment.WebRootPath, "pdf\\7. CSSE - RBS FORM (3).pdf");
-
-        //    // Ensure the input file exists
-        //    if (!System.IO.File.Exists(pdfFilePath))
-        //    {
-        //        throw new FileNotFoundException("The PDF file does not exist.", pdfFilePath);
-        //    }
-
-        //    string htmlContent;
-
-        //    using (var reader = new PdfReader(pdfFilePath))
-        //    {
-        //        using (var outputStream = new MemoryStream())
-        //        {
-        //            // Set up the HTML writer
-        //            using (var document = new Document())
-        //            {
-        //                using (var htmlWriter = new HTMLWorker(document))
-        //                {
-        //                    PdfWriter writer = PdfWriter.GetInstance(document, outputStream);
-        //                    document.Open();
-
-        //                    // Extract text and convert to HTML
-        //                    for (int page = 1; page <= reader.NumberOfPages; page++)
-        //                    {
-        //                        var pageText = PdfTextExtractor.GetTextFromPage(reader, page);
-        //                        var htmlContentStream = new MemoryStream();
-        //                        htmlWriter.Parse(new StringReader(pageText), htmlContentStream);
-        //                        htmlContentStream.Position = 0;
-        //                        using (var streamReader = new StreamReader(htmlContentStream))
-        //                        {
-        //                            htmlContent += streamReader.ReadToEnd();
-        //                        }
-        //                    }
-
-        //                    document.Close();
-        //                }
-        //            }
-        //        }
-        //    }
-
-        //    return htmlContent;
-
-        //}
+ 
     
     }
 }

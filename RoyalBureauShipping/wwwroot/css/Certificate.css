@@ -1,0 +1,54 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+    /*font: 12pt "TimesNewRoman";*/
+    min-height: 29.7cm;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.page {
+    display: flex;
+    /* width: 21cm; */
+/*    min-height: 29.7cm;*/
+    padding: 1.5cm 2cm;
+    /* margin: auto; */
+    /*border: 1px solid rgb(211, 211, 211);*/
+    /* border-radius: 5px; */
+    background: white;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px; */
+    justify-content: center;
+}
+
+.subpage {
+    padding: 1cm;
+    border: 5px red solid;
+    height: 256mm;
+    outline: 2cm #FFEAEA solid;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+@media print {
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
+}
+.styleIssued {
+    display: flex;
+    justify-content: space-between;
+}
