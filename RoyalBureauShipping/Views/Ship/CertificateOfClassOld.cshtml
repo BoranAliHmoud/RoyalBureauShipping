@@ -1,0 +1,193 @@
+﻿@model ShipModel
+@using System.Linq;
+@{
+    Layout = null;
+
+    List<CargoShip> CargoShipList = new List<CargoShip>();
+    //if (ViewBag.CargoShip != null)
+    //    CargoShipList = ViewBag.CargoShip;
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+
+        body {
+            margin-top: 0px;
+        }
+
+        body, p {
+            font-size: 12px;
+        }
+
+        h4 {
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+
+
+        hr {
+            border: 1px solid black !important;
+        }
+
+        span {
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 5px;
+        }
+
+        ul {
+            margin-bottom: 0
+        }
+
+        .marginLeft {
+            margin-left: 17px
+        }
+
+        .Fontsize-ol {
+            font-size: 9px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+        <div class="col-12  ">
+            <div class=" row" style="    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    display: flex;
+
+">
+                <div>
+
+                    <img src="~/img/img.png" width=100 />
+                </div>
+                <div class=" row" style="  width: 100%;
+display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+                    ">
+                    <h4 class="col-6  ">CERT. No. :@Model.Class_Id</h4>
+
+                    <h1 class="align-content-center">
+                        CERTIFICATE OF CLASS
+                        (INTERIM)
+                    </h1>
+                    <p style="width: 75%;">
+                        This certificate is accompanied with a Supplement.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+      
+        <div style="display: flex;
+    flex-direction: column;
+    align-items: center;">
+            <p class="align-content-center">
+                This Certificate is issued to the
+                :
+            </p>
+            <p class="align-content-center  ">
+                IMO Number:  <span>@Model.IMO_NO   </span>
+            </p>
+            <p class="align-content-center  ">
+                Distinctive Number or Letters:  <span>@Model.DistinctiveNumber  </span>
+            </p>
+            <p class="align-content-center  ">
+                Port of Registry:
+                <span>@Model.Port_Of_Register  </span>
+            </p>
+            <p class="align-content-center  ">
+                Owner:
+                <span>@Model.ShipOwner  </span>
+            </p> 
+            <p class="align-content-center  ">
+                Place of build:
+                <span>@Model.ShipAddress  </span>
+            </p> 
+            <p class="align-content-center  ">
+                Year of build:
+                <span>@Model.Year  </span>
+            </p>
+        </div>
+       
+        <div>
+            <p class="align-content-center">
+                to confirm that having been surveyed by Royal Bureau of Shipping1 Surveyor at <span>@Model.DateBuildingContract.ToString("yyyy/MM/dd") </span>
+                on<span>@Model.EffectiveDate.ToString("yyyy/MM/dd") </span> has been found in compliance with the Society’s Rules for the Classification and
+                Construction of sea-going Ships.
+            </p> 
+            <p>The aforementioned ship has been assigned the following Class notations.
+            </p>
+    
+        </div>
+        <div style="display: flex;
+    flex-direction: column;
+    align-items: center;">
+            <p class="align-content-center">
+                Hull
+                :<span>@Model.PortSurvey</span>
+            </p>
+         <p class="align-content-center">
+                Machinery
+                :<span>@Model.Machinery</span>
+            </p>
+            <div>
+          <p class="align-content-center">
+                    Period of Class running from :<span>@Model.CasualHistory.ToString("yyyy/MM/dd")</span>
+            </p>  
+            <p class="align-content-center">
+                    Date of last Bottom Survey :<span>@Model.CompletionDateSurvey.ToString("yyyy/MM/dd")</span>
+            </p>
+            </div>
+            <div>
+            <p class="align-content-center">
+                    The Class is valid until :<span>@Model.ValidUntil.ToString("yyyy/MM/dd")</span>
+            </p>
+            <p class="align-content-center">
+                    Date of last propeller shaft survey:<span>@Model.LastPropeller.ToString("yyyy/MM/dd")</span>
+            </p>
+        </div>
+        </div>
+        <p class="align-content-center  ">
+            Issued at<span>@Model.IssuedAt</span> On <span>@Model.CreatedDate.ToString("yyyy/MM/dd")</span>
+        </p>
+        <div style="
+    display: flex;
+    flex-direction: row-reverse;
+">
+            <div style=" width:50%;">
+                <hr class="table table-bordered" />
+                <p style="    text-align: center;font-weight: bold;">
+                    ENG. I. ABDALLAH
+                </p>
+
+                <p style="    text-align: center;font-weight: bold;">
+                    Surveyor to<span> ROYAL BUREAU OF SHIPPING</span>
+                </p>
+            </div>
+            <div style=" width:50%;">
+                <img src="@String.Format("/GeneratedQRCode/shipsafety/{0}.webp",Model.Id.ToString())" style="width: 100px;" />
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+

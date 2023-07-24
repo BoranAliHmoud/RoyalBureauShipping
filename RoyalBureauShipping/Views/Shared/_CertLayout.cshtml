@@ -1,0 +1,27 @@
+﻿@model ShipModel
+@using System.Linq;
+@{
+    Layout = null;
+
+    List<CargoShip> CargoShipList = new List<CargoShip>();
+    //if (ViewBag.CargoShip != null)
+    //    CargoShipList = ViewBag.CargoShip;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    @RenderSection("Styles", required: false)
+    <!-- Bootstrap CSS-->
+    <link href="~/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
+    <link href="~/css/certificate.css" rel="stylesheet" />
+</head>
+
+<body> 
+	 
+            @RenderBody()
+      
+
+</body>
+</html>

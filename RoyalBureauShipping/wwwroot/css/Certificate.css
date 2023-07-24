@@ -15,7 +15,7 @@
     display: flex;
     /* width: 21cm; */
 /*    min-height: 29.7cm;*/
-    padding: 1.5cm 2cm;
+    padding: 1cm 2cm;
     /* margin: auto; */
     /*border: 1px solid rgb(211, 211, 211);*/
     /* border-radius: 5px; */
@@ -28,7 +28,7 @@
     padding: 1cm;
     border: 5px red solid;
     height: 256mm;
-    outline: 2cm #FFEAEA solid;
+    outline: 2cm white solid;
 }
 
 @page {
@@ -51,4 +51,11 @@
 .styleIssued {
     display: flex;
     justify-content: space-between;
+}
+.tableWithout td {
+    border-top: none !important;
+     
+}
+.tableWithout th {
+    border-top: none !important;
 }
