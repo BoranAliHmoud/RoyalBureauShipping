@@ -6,68 +6,71 @@
 @section Styles
     {
     <style type="text/css">
-     body {
+    /* body {
             font-size:14px !important;
-     }
+           
+     }*/
     </style>
 }
 <div class="page">
     <div class="row">
         <div class="col-12">
-        <div class="col-5">
-            <h1 class="text-hide" style="background-image: url('img\img.png'); width: 50px; height: 50px;">
-                <img src="~/img/img.png" width=200 />
+            <div class="row">
+        <div class="col-6">
+            <h1 class="text-hide" >
+                    <img src="~/img/img.png" width=200 />
             </h1>
         </div>
-        <div class="col-7 float-right">
+        <div class="col-6 float-right">
             <h6 class="text-sm-right"> Certificate No.:<span> @Model.Class_Id</span></h6>
-            <h3 class="text-sm-right">
+            <h2 class="text-sm-right">
                 CERTIFICATE OF CLASS
                 (INTERIM)
-            </h3>
+            </h2>
             <p class="col-9 float-right text-sm-right px-0">
                 This certificate is accompanied with a Supplement. 
             </p> 
         </div>
         </div>
+        </div>
 
 
-        <div class="col-4  mt-5 ">
-            <p class="">
+        <div class="col-4   ">
+            <p class=" ml-4">
                 This Certificate is issued to the
                 :
             </p>
-            <table class="table tableWithout mt-3">
+            <table class="table tableWithout ">
                 <tbody>
                     <tr>
-                        <th class="  text-right"> IMO Number:</th>
+                        <td class="  text-right"> IMO Number:</td>
                         <td class=" "> @Model.IMO_NO</td>
                     </tr>
                     <tr>
-                        <th class=" text-right">
+                        <td class=" text-right">
                             Distinctive Number or Letters:
-                        </th>
+                        </td>
                         <td class="   ">
                             @Model.DistinctiveNumber
                         </td>
                     </tr>
                     <tr>
-                        <th class="  text-right">Port of Registry :</th>
+                        <td class="  text-right">Port of Registry :</td>
                         <td class="  ">@Model.Port_Of_Register </td>
                     </tr>
                     <tr>
-                        <th class="  text-right">Owner:</th>
+                        <td class="  text-right">Owner:</td>
                         <td class="  ">@Model.ShipOwner</td>
                     </tr>
                     <tr>
-                        <th class=" text-right"> Place of build:</th>
-                        <td class="   "> @Model.ShipAddress</td>
+                        <td class=" text-right"> Place of build:</td>
+                        <td class=""> @Model.ShipAddress</td>
                     </tr>
                     <tr>
-                        <th class="  text-right">
+                        <td class="  text-right">
                             Year of build:
-                        </th>
-                        <td class="   "> @Model.Year  </td>
+                        </td>
+                        <td class=""> @Model.Year  </td>
 
 
                     </tr>
@@ -78,8 +81,8 @@
 
         <div class="col-12 ">
             <p class="align-content-center">
-                to confirm that having been surveyed by Royal Bureau of Shipping1 Surveyor at <span>@Model.DateBuildingContract.ToString("yyyy/MM/dd") </span>
-                on<span>@Model.EffectiveDate.ToString("yyyy/MM/dd") </span> has been found in compliance with the Society’s Rules for the Classification and
+                to confirm that having been surveyed by Royal Bureau of Shipping1 Surveyor at <span> @Model.DateBuildingContract.ToString("yyyy/MM/dd")  </span>
+                on  <span>@Model.EffectiveDate.ToString("yyyy/MM/dd") </span> has been found in compliance with the Society’s Rules for the Classification and
                 Construction of sea-going Ships.
             </p> 
         </div>
@@ -90,13 +93,13 @@
             <table class="table tableWithout">
                 <tbody>
                     <tr>
-                        <th class=" text-center">   Hull:</th>
+                        <td class=" text-center">   Hull:</td>
                         <td class= " "> @Model.PortSurvey</td>
                     </tr>
                     <tr>
-                        <th class="  text-center">
+                        <td class="  text-center">
                             Machinery:
-                        </th>
+                        </td>
                         <td class="  ">
                             @Model.Machinery
                         </td>
@@ -112,13 +115,13 @@
             <table class="table tableWithout">
                     <tbody>
                         <tr>
-                        <td class=" text-center">  Period of Class running from :</td>
+                        <td class="  text-right col-4">  Period of Class running from :</td>
                             <td class=" "> @Model.CasualHistory.ToString("yyyy/MM/dd")</td>
                         <td class=" text-center"> Date of last Bottom Survey :</td>
                             <td class=" "> @Model.CompletionDateSurvey.ToString("yyyy/MM/dd")</td>
                         </tr>
                         <tr>
-                        <td class=" text-center">  The Class is valid until :</td>
+                        <td class=" text-right col-4">  The Class is valid until :</td>
                             <td class=" ">@Model.ValidUntil.ToString("yyyy/MM/dd")</td>
                         <td class="text-center"> Date of last propeller shaft survey:</td>
                             <td class=""> @Model.LastPropeller.ToString("yyyy/MM/dd")</td>

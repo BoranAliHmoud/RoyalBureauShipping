@@ -1,9 +1,10 @@
 ﻿body {
     margin: 0;
     padding: 0;
-    background-color: #FAFAFA;
+    /*    background-color: #FAFAFA;*/
     /*font: 12pt "TimesNewRoman";*/
     min-height: 29.7cm;
+    font-family: "Times New Roman";
 }
 
 * {
@@ -14,7 +15,7 @@
 .page {
     display: flex;
     /* width: 21cm; */
-/*    min-height: 29.7cm;*/
+    /*    min-height: 29.7cm;*/
     padding: 1cm 2cm;
     /* margin: auto; */
     /*border: 1px solid rgb(211, 211, 211);*/
@@ -22,6 +23,11 @@
     background: white;
     /* box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px; */
     justify-content: center;
+    background-image: url('/img/ri_1.jpeg');
+    background-repeat: no-repeat;
+    /*background-attachment: fixed;*/
+    background-position: center;
+    background-size: contain;
 }
 
 .subpage {
@@ -54,8 +60,11 @@
 }
 .tableWithout td {
     border-top: none !important;
-     
+    padding: 8px;
 }
 .tableWithout th {
     border-top: none !important;
+}
+.Fontsize-ol {
+    font-size: 9px;
 }
