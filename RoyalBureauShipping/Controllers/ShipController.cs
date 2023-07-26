@@ -286,7 +286,7 @@ namespace RoyalBureauShipping.Controllers
 
             return View(ShipSafety);
         } 
-        public async Task<IActionResult> InternationalLoalineCertificate(int id)
+        public async Task<IActionResult> InternationalOilPollutionPreventionCertificat(int id)
         {
             var ShipSafety = await _context.Ships.FindAsync(id);
             //List<CargoShip> CargoShip = _context.CargoShips.ToList();
@@ -295,6 +295,23 @@ namespace RoyalBureauShipping.Controllers
             return View(ShipSafety);
         }
          public async Task<IActionResult> InternationalAirPollutionPreventionCertificate(int id)
+        {
+            var ShipSafety = await _context.Ships.FindAsync(id);
+            //List<CargoShip> CargoShip = _context.CargoShips.ToList();
+            //ViewBag.CargoShip = CargoShip;
+
+            return View(ShipSafety);
+        }    
+        public async Task<IActionResult> InternationalEnergyEfficiencyCertificate(int id)
+        {
+            var ShipSafety = await _context.Ships.FindAsync(id);
+            //List<CargoShip> CargoShip = _context.CargoShips.ToList();
+            //ViewBag.CargoShip = CargoShip;
+
+            return View(ShipSafety);
+        }
+
+    public async Task<IActionResult> CargoShipSafetyRadioCertificate(int id)
         {
             var ShipSafety = await _context.Ships.FindAsync(id);
             //List<CargoShip> CargoShip = _context.CargoShips.ToList();

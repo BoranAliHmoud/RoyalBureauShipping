@@ -64,14 +64,14 @@
                     <div class="card">
                         <div class="card-header">
                             <h6 class="Font-h6"> 
-                                International Loaline Certificate
+                                International Oil Pollution Prevention Certificate
                             </h6>
                         </div>
                         <div class="">
-                            <div id="pdfContainerInternationalLoalineCertificate" style="display: flex;  height: 150px;  justify-content: space-around;"></div>
+                            <div id="pdfContainerInternationalOilPollutionPreventionCertificat" style="display: flex;  height: 150px;  justify-content: space-around;"></div>
                         </div>
                         <div style="display: flex;      padding: 6px;  justify-content: space-evenly;">
-                            <a asp-action="ExportPDF" asp-route-id=@Model.Id asp-route-NameCertificat="InternationalLoalineCertificate"><i class="fa fa-download"></i></a>|
+                            <a asp-action="ExportPDF" asp-route-id=@Model.Id asp-route-NameCertificat="InternationalOilPollutionPreventionCertificat"><i class="fa fa-download"></i></a>|
                             <a asp-action="Edit" asp-route-id=@Model.Id><i class="fa fa-edit"></i></a>
 
                         </div>
@@ -92,6 +92,46 @@
                         </div>
                         <div style="display: flex;      padding: 6px;  justify-content: space-evenly;">
                             <a asp-action="ExportPDF" asp-route-id=@Model.Id asp-route-NameCertificat="InternationalAirPollutionPreventionCertificate"><i class="fa fa-download"></i></a>|
+                            <a asp-action="Edit" asp-route-id=@Model.Id><i class="fa fa-edit"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                @*End Item*@
+
+                @*Begin Item *@
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="Font-h6">
+                                International Energy Efficiency Certificate
+                            </h6>
+                        </div>
+                        <div class="">
+                            <div id="pdfContainerInternationalEnergyEfficiencyCertificate" style="display: flex;  height: 150px;  justify-content: space-around;"></div>
+                        </div>
+                        <div style="display: flex;      padding: 6px;  justify-content: space-evenly;">
+                            <a asp-action="ExportPDF" asp-route-id=@Model.Id asp-route-NameCertificat="InternationalEnergyEfficiencyCertificate"><i class="fa fa-download"></i></a>|
+                            <a asp-action="Edit" asp-route-id=@Model.Id><i class="fa fa-edit"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                @*End Item*@
+
+                @*Begin Item *@
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="Font-h6">
+                                Cargo Ship Safety Radio Certificate
+                            </h6>
+                        </div>
+                        <div class="">
+                            <div id="pdfContainerCargoShipSafetyRadioCertificate" style="display: flex;  height: 150px;  justify-content: space-around;"></div>
+                        </div>
+                        <div style="display: flex;      padding: 6px;  justify-content: space-evenly;">
+                            <a asp-action="ExportPDF" asp-route-id=@Model.Id asp-route-NameCertificat="CargoShipSafetyRadioCertificate"><i class="fa fa-download"></i></a>|
                             <a asp-action="Edit" asp-route-id=@Model.Id><i class="fa fa-edit"></i></a>
 
                         </div>
@@ -126,14 +166,24 @@
     const pdfContainerCertificateOfClass = document.getElementById('pdfContainerCertificateOfClass');  
     
     // URL to your PDF document
-    const pdfUrlInternationalLoalineCertificate = "ExportPDF?id=" + @Model.Id+"&NameCertificat=InternationalLoalineCertificate";
+    const pdfUrlInternationalOilPollutionPreventionCertificat = "ExportPDF?id=" + @Model.Id+"&NameCertificat=InternationalOilPollutionPreventionCertificat";
     // ID of the div where you want to display the PDF page
-    const pdfContainerInternationalLoalineCertificate = document.getElementById('pdfContainerInternationalLoalineCertificate');
+    const pdfContainerInternationalOilPollutionPreventionCertificat = document.getElementById('pdfContainerInternationalOilPollutionPreventionCertificat');
 
    // URL to your PDF document
     const pdfUrlInternationalAirPollutionPreventionCertificate = "ExportPDF?id=" + @Model.Id+"&NameCertificat=InternationalAirPollutionPreventionCertificate";
     // ID of the div where you want to display the PDF page
     const pdfContainerInternationalAirPollutionPreventionCertificate = document.getElementById('pdfContainerInternationalAirPollutionPreventionCertificate');
+ 
+    // URL to your PDF document
+    const pdfUrlInternationalEnergyEfficiencyCertificate = "ExportPDF?id=" + @Model.Id+"&NameCertificat=InternationalEnergyEfficiencyCertificate";
+    // ID of the div where you want to display the PDF page
+    const pdfContainerInternationalEnergyEfficiencyCertificate = document.getElementById('pdfContainerInternationalEnergyEfficiencyCertificate');
+
+// URL to your PDF document
+    const pdfUrlCargoShipSafetyRadioCertificate = "ExportPDF?id=" + @Model.Id+"&NameCertificat=CargoShipSafetyRadioCertificate";
+    // ID of the div where you want to display the PDF page
+    const pdfContainerCargoShipSafetyRadioCertificate = document.getElementById('pdfContainerCargoShipSafetyRadioCertificate');
 
 
     // Asynchronous function to load and display the PDF page
@@ -171,7 +221,9 @@
     displayPDFPage(pdfUrlCargoShipSafety, pdfContainerCargoShipSafety);
     displayPDFPage(pdfUrlCargoShipRadio, pdfContainerCargoShipRadio);
     displayPDFPage(pdfUrlCertificateOfClass, pdfContainerCertificateOfClass);
-    displayPDFPage(pdfUrlInternationalLoalineCertificate, pdfContainerInternationalLoalineCertificate);
+    displayPDFPage(pdfUrlInternationalOilPollutionPreventionCertificat, pdfContainerInternationalOilPollutionPreventionCertificat);
     displayPDFPage(pdfUrlInternationalAirPollutionPreventionCertificate, pdfContainerInternationalAirPollutionPreventionCertificate);
+    displayPDFPage(pdfUrlInternationalEnergyEfficiencyCertificate, pdfContainerInternationalEnergyEfficiencyCertificate);
+    displayPDFPage(pdfUrlCargoShipSafetyRadioCertificate, pdfContainerCargoShipSafetyRadioCertificate);
 </script>
 <!-- END PAGE CONTAINER--> 

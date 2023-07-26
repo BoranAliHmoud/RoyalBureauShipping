@@ -68,3 +68,9 @@
 .Fontsize-ol {
     font-size: 9px;
 }
+.table thead th {
+    border-color: black !important;
+}
+.table-bordered td, .table-bordered th {
+    border-color: black !important;
+}

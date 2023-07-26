@@ -1,0 +1,135 @@
+﻿ @model ShipModel
+@using System.Linq;
+@{
+    Layout = "_CertLayout";
+}
+
+<div class="page">
+    <div class="row">
+
+        <div class="col-3">
+            <h1 class="text-hide" style="background-image: url('img\img.png'); width: 50px; height: 50px;">
+                <img src="~/img/img.png" width=200 />
+            </h1>
+        </div>
+        <div class="col-9 float-right">
+            <h6 class="text-sm-right"> Certificate No.:<span> @Model.Class_Id</span></h6>
+            <h4 class="text-sm-right">
+               INTERNATIONAL OIL POLLUTION PREVENTION
+CERTIFICATE
+(INTERIM)
+
+            </h4>
+            <p class="col-9 float-right text-sm-right px-0">
+               Issued under the Provisions of the
+International Convention for the Prevention of Pollution from Ships, 1973
+as modified by the Protocol of 1978 related thereto, as amended
+(Hereinafter referred to as “The Convention”)
+
+
+            </p>
+
+        </div>
+
+        <div class=" col-12 text-sm-center float-center">
+            <p class="col-12 text-sm-center">
+                Under the Authority of the Government of
+            </p>
+            <h6 class="col-9  mx-auto text-sm-center">
+                Hashemite Kingdom of Jordan
+                By Royal Bureau of Shipping
+            </h6>
+        </div>
+
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Name of Ship</th>
+                        <th scope="col">
+                            Distinctive
+                            Number of Letter
+                        </th>
+                        <th scope="col">Port of Registry</th>
+                        <th scope="col">Gross Tonnage</th>
+                        <th scope="col">Deadweight of Ship (tonnes)1</th>
+                        <th scope="col">
+                            IMO
+                            NUMBER
+                        </th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th>
+                            @Model.VesselName
+                        </th>
+                        <th>@Model.DistinctiveNumber</th>
+                        <th>@Model.Port_Of_Register</th>
+                        <th>@Model.GrossTonnage</th>
+                        <th>@Model.DeadweightShip</th>
+                        <th>@Model.IMO_NO</th>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-12">
+            <p>Type of ship 3 </p>
+          
+             <p class="ml-5">
+               Oil Tanker
+            </p> 
+            <p class="ml-5">
+              Ship other than an oil tanker with cargo tanks coming under regulation 2(2) of Annex I of the Convention
+
+            </p> 
+            <p class="ml-5">
+Ship other than any of the above
+            </p>
+             <p>This is to certify:</p>
+             
+            <p class="ml-5">1. That the ship has been surveyed in accordance with regulation 6 of Annex I of the Convention; and</p>
+            <p class="ml-5">
+                2. That the survey shows that the structure, equipment, systems, fittings, arrangements and material of the ship
+                requirements of Annex I of the Convention.
+            </p>
+            <p>This certificate is valid until: <span> @Model.ValidUntil</span></p>
+
+            <p>Completion date of the survey on which this certificate is based:<span> @Model.CompletionDateSurvey.ToString("yyyy/MM/dd") </span></p>
+
+            <p class="styleIssued">
+                Issued at <span class="text-justify">@Model.IssuedAt</span>on <span class="text-justify">@Model.CreatedDate.ToString("yyyy/MM/dd") </span>
+            </p>
+        </div>
+        <div class="col-12">
+            <div class="row d-flex">
+
+                <img class="col-3 mr-auto p-2" src="@String.Format("/GeneratedQRCode/shipsafety/{0}.webp",Model.Id.ToString())" />
+
+                <div class="col-6 p-2" style="margin-top: 75px">
+                    <hr />
+                    <h6 class="text-sm-center">
+                        ENG. I. ABDALLAH
+                    </h6>
+
+                    <h6 class="text-sm-center">
+                        Surveyor to<span> ROYAL BUREAU OF SHIPPING</span>
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <p class="col-12" style="font-size:9px; margin-top: 50px">
+            1
+            In accordance with IMO Ship Identification Number Scheme, adopted by resolution A.1117(30)
+        </p>
+        <p class="col-12" style="font-size:9px;">
+            2 Delete as appropriate
+        </p>
+    </div>
+
+</div>

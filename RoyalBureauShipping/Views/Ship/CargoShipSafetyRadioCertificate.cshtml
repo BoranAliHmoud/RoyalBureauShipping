@@ -1,0 +1,133 @@
+﻿@model ShipModel
+@using System.Linq;
+@{
+    Layout = "_CertLayout";
+}
+
+<div class="page">
+    <div class="row">
+
+        <div class="col-3">
+            <h1 class="text-hide">
+                <img src="~/img/img.png" width=200 />
+            </h1>
+        </div>
+        <div class="col-9 float-right">
+            <h6 class="text-sm-right"> Certificate No.:<span> @Model.Class_Id</span></h6>
+            <h4 class="text-sm-right">
+                CARGO SHIP SAFETY RADIO CERTIFCATE (INTERIM)
+
+            </h4>
+            <p class="col-9 float-right text-sm-right px-0">
+                This Certificate shall be supplemented by a Record of Equipment for
+                Cargo Ship Safety Radio (FORM R)
+                Issued under the provisions of the
+                International Convention for the Safety of Life at Sea, 1974,
+
+            </p>
+
+        </div>
+
+        <div class=" col-12 text-sm-center float-center">
+            <p class="col-12 text-sm-center"> Under the Authority of the Government of </p>
+            <h6 class="col-6  mx-auto text-sm-center">
+                Hashemite Kingdom of Jordan
+                By Royal Bureau of Shipping
+            </h6>
+        </div>
+
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Name of Ship</th>
+                        <th scope="col">
+                            Distinctive
+                            Number of Letter
+                        </th>
+                        <th scope="col">Port of Registry</th>
+                        <th scope="col">Gross Tonnage</th>
+                        <th scope="col">
+                            IMO
+                            NUMBER
+                        </th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th>
+                            @Model.VesselName
+                        </th>
+                        <th>@Model.DistinctiveNumber</th>
+                        <th>@Model.Port_Of_Register</th>
+                        <th>@Model.GrossTonnage</th>
+                        <th>@Model.IMO_NO</th>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-12">
+            <p>Sea areas in which ship is certified to operate (regulation IV/2):     <span>@Model.PermissibleMarineAreas </span></p>
+            <p>
+                Date on which keel was laid or ship was at a similar stage of construction or, where applicable, date on which work for a
+                conversion or an alternation or modification of a major character was commenced
+                <span>@Model.CasualHistory.ToString("yyyy/MM/dd")</span>
+            </p>
+            <p >
+                This is to certify:
+            </p>
+            <p class="mb-0">
+                1. That the ship has been surveyed in accordance with the requirements of regulation I/9 of the Convention.
+            </p>
+            <p class="mb-0">
+                2. That the survey showed that
+            </p>
+            <p class="ml-4 mb-0">
+                2.1 the ship complied with the requirements of the Convention as regards radio installations;
+            </p>
+            <p class="ml-4 mb-0">
+                2.2 the functioning of the radio installations used in life-saving appliances complied with the requirements of
+                the Convention.
+            </p>
+            <p class="ml-4 mb-0">3. That an Exemption Certificate has / has not2 been issued.</p>
+            <p>    This certificate is valid until:<span>@Model.CertificateValid.ToString("yyyy/MM/dd")</span></p>
+
+            <p class="">
+                Completion date of the survey on which this certificate is based:<span>@Model.CompletionDateSurvey.ToString("yyyy/MM/dd")</span>
+
+            </p>
+            <p class="styleIssued">
+                Issued at <span class="text-justify">@Model.IssuedAt</span>on <span class="text-justify">@Model.CreatedDate.ToString("yyyy/MM/dd") </span>
+            </p>
+        </div>
+        <div class="col-12">
+            <div class="row d-flex">
+
+                <img class="col-3 mr-auto p-2" src="@String.Format("/GeneratedQRCode/shipsafety/{0}.webp",Model.Id.ToString())" />
+
+                <div class="col-6 p-2" style="margin-top: 75px">
+                    <hr />
+                    <h6 class="text-sm-center">
+                        ENG. I. ABDALLAH
+                    </h6>
+
+                    <h6 class="text-sm-center">
+                        Surveyor to<span> ROYAL BUREAU OF SHIPPING</span>
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <p class="col-12" style="font-size:9px; margin-top: 50px">
+            1
+            In accordance with IMO Ship Identification Number Scheme, adopted by resolution A.1117(30)
+        </p>
+        <p class="col-12" style="font-size:9px;">
+            2 Delete as appropriate
+        </p>
+    </div>
+
+</div>
